@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+const logoImage = require('./assets/adaptive-icon.png');
 
 export default function App() {
   return (
@@ -12,14 +12,23 @@ export default function App() {
         rowGap: 6,
       }}
     >
-      <Text
-        style={{ fontSize: 18, paddingHorizontal: 18, textAlign: 'center' }}
+      <ImageBackground
+        source={logoImage}
+        style={{ height: '100%', width: '100%' }}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, autem!
-      </Text>
-      <View style={{ backgroundColor: 'black', height: 200, width: 200 }} />
-      <View style={{ backgroundColor: 'black', height: 200, width: 200 }} />
-      <View style={{ backgroundColor: 'black', height: 200, width: 200 }} />
+        <Image source={logoImage} style={{ width: 200, height: 200 }} />
+        <Image
+          source={{ uri: 'https://picsum.photos/200' }}
+          style={{ width: 200, height: 200 }}
+        />
+        <Text
+          style={{ fontSize: 18, paddingHorizontal: 18, textAlign: 'center' }}
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
+          autem!
+        </Text>
+        <View style={{ backgroundColor: 'black', height: 200, width: 200 }} />
+      </ImageBackground>
     </View>
   );
 }
