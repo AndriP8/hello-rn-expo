@@ -1,35 +1,42 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ScrollViewBase,
+} from 'react-native';
 const logoImage = require('./assets/adaptive-icon.png');
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        rowGap: 6,
-      }}
-    >
-      <ImageBackground
-        source={logoImage}
-        style={{ height: '100%', width: '100%' }}
+    // Note: consider using FlatList for lazy load
+    <ScrollView>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignContent: 'center',
+          rowGap: 40,
+          paddingHorizontal: 50,
+          paddingVertical: 100,
+        }}
       >
-        <Image source={logoImage} style={{ width: 200, height: 200 }} />
-        <Image
-          source={{ uri: 'https://picsum.photos/200' }}
-          style={{ width: 200, height: 200 }}
-        />
+        <Image source={logoImage} style={{ width: 300, height: 300 }} />
         <Text
           style={{ fontSize: 18, paddingHorizontal: 18, textAlign: 'center' }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-          autem!
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
+          incidunt consequuntur a corrupti distinctio quo fuga ipsam
+          consectetur! Enim, provident.
         </Text>
-        <View style={{ backgroundColor: 'black', height: 200, width: 200 }} />
-      </ImageBackground>
-    </View>
+        <Image
+          source={{ uri: 'https://picsum.photos/200' }}
+          style={{ width: 300, height: 300 }}
+        />
+      </View>
+    </ScrollView>
   );
 }
 
