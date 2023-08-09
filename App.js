@@ -1,11 +1,10 @@
 import {
+  Button,
   Image,
-  ImageBackground,
   ScrollView,
   StyleSheet,
   Text,
   View,
-  ScrollViewBase,
 } from 'react-native';
 const logoImage = require('./assets/adaptive-icon.png');
 
@@ -31,6 +30,11 @@ export default function App() {
           incidunt consequuntur a corrupti distinctio quo fuga ipsam
           consectetur! Enim, provident.
         </Text>
+        <Button
+          title="Press Me!"
+          onPress={() => alert('Pressed')}
+          color="deepskyblue"
+        />
         <Image
           source={{ uri: 'https://picsum.photos/200' }}
           style={{ width: 300, height: 300 }}
