@@ -1,6 +1,7 @@
 import {
   Button,
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -22,8 +23,16 @@ export default function App() {
           paddingVertical: 100,
         }}
       >
-        <Image source={logoImage} style={{ width: 300, height: 300 }} />
+        <Pressable
+          onPress={() => console.log('Image pressed')}
+          onPressIn={() => console.log('press in')}
+          onPressOut={() => console.log('press out')}
+          onLongPress={() => console.log('long press')}
+        >
+          <Image source={logoImage} style={{ width: 300, height: 300 }} />
+        </Pressable>
         <Text
+          selectable
           style={{ fontSize: 18, paddingHorizontal: 18, textAlign: 'center' }}
         >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
