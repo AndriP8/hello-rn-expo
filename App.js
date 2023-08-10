@@ -11,6 +11,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import Greet from './components/Greet';
 const logoImage = require('./assets/adaptive-icon.png');
 
 export default function App() {
@@ -53,6 +54,8 @@ export default function App() {
             }}
           >
             <Text>Modal content</Text>
+            <Greet name="Andri" />
+            <Greet name="Purnomo" />
             <Button
               title="Close"
               color="deepskyblue"
