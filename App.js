@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
+  ActivityIndicator,
   Button,
   Image,
   Modal,
@@ -30,6 +31,7 @@ export default function App() {
         }}
       >
         <Image source={logoImage} style={{ width: 300, height: 300 }} />
+        <ActivityIndicator size="large" color="deepskyblue" />
         <Button
           title="Press Me!"
           onPress={() => setIsModalVisible(true)}
