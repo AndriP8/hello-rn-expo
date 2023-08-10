@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
   Button,
@@ -16,6 +17,7 @@ export default function App() {
   return (
     // Note: consider using FlatList for lazy load
     <ScrollView>
+      <StatusBar backgroundColor="gray" />
       <View
         style={{
           flex: 1,
@@ -24,6 +26,7 @@ export default function App() {
           rowGap: 40,
           paddingHorizontal: 50,
           paddingVertical: 20,
+          marginVertical: 20,
         }}
       >
         <Image source={logoImage} style={{ width: 300, height: 300 }} />
