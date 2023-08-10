@@ -1,7 +1,8 @@
+import React from 'react';
 import {
   Button,
   Image,
-  Pressable,
+  Modal,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,6 +11,8 @@ import {
 const logoImage = require('./assets/adaptive-icon.png');
 
 export default function App() {
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
   return (
     // Note: consider using FlatList for lazy load
     <ScrollView>
@@ -20,17 +23,36 @@ export default function App() {
           alignContent: 'center',
           rowGap: 40,
           paddingHorizontal: 50,
-          paddingVertical: 100,
+          paddingVertical: 20,
         }}
       >
-        <Pressable
-          onPress={() => console.log('Image pressed')}
-          onPressIn={() => console.log('press in')}
-          onPressOut={() => console.log('press out')}
-          onLongPress={() => console.log('long press')}
+        <Image source={logoImage} style={{ width: 300, height: 300 }} />
+        <Button
+          title="Press Me!"
+          onPress={() => setIsModalVisible(true)}
+          color="deepskyblue"
+        />
+        <Modal
+          visible={isModalVisible}
+          onRequestClose={() => setIsModalVisible(false)}
+          animationType="slide"
+          statusBarTranslucent
         >
-          <Image source={logoImage} style={{ width: 300, height: 300 }} />
-        </Pressable>
+          <View
+            style={{
+              backgroundColor: 'lightblue',
+              flex: 1,
+              padding: 60,
+            }}
+          >
+            <Text>Modal content</Text>
+            <Button
+              title="Close"
+              color="deepskyblue"
+              onPress={() => setIsModalVisible(false)}
+            />
+          </View>
+        </Modal>
         <Text
           selectable
           style={{ fontSize: 18, paddingHorizontal: 18, textAlign: 'center' }}
@@ -39,11 +61,6 @@ export default function App() {
           incidunt consequuntur a corrupti distinctio quo fuga ipsam
           consectetur! Enim, provident.
         </Text>
-        <Button
-          title="Press Me!"
-          onPress={() => alert('Pressed')}
-          color="deepskyblue"
-        />
         <Image
           source={{ uri: 'https://picsum.photos/200' }}
           style={{ width: 300, height: 300 }}
