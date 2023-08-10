@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
   ActivityIndicator,
+  Alert,
   Button,
   Image,
   Modal,
@@ -48,6 +49,7 @@ export default function App() {
               backgroundColor: 'lightblue',
               flex: 1,
               padding: 60,
+              rowGap: 20,
             }}
           >
             <Text>Modal content</Text>
@@ -55,6 +57,23 @@ export default function App() {
               title="Close"
               color="deepskyblue"
               onPress={() => setIsModalVisible(false)}
+            />
+            <Button
+              title="Alert"
+              color="deepskyblue"
+              onPress={() =>
+                Alert.alert('Alert!', 'Alert message!', [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel pressed'),
+                  },
+                  {
+                    text: 'Oke',
+                    onPress: () => console.log('Oke pressed'),
+                    style: 'cancel',
+                  },
+                ])
+              }
             />
           </View>
         </Modal>
